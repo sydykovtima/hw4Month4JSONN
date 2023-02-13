@@ -18,7 +18,6 @@ class OrderTypeCollectionViewCell: UICollectionViewCell {
         typeOfOrderLable.layer.borderColor = UIColor.lightGray.cgColor
         typeOfOrderLable.layer.cornerRadius = 20
         typeOfOrderLable.layer.borderWidth = 2
-//        typeOfOrderLable.textColor = item.orderOfType
     }
 }
 
@@ -48,8 +47,6 @@ let orderTypeJSON = """
 
 struct TypeOfOrder: Decodable {
     let orderOfType: String
-//    let colorForText: UIColor
-//    let backGroundColorForText: UIColor
 }
  
 
