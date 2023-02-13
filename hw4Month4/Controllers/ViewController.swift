@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class ViewController: UIViewController {
     
     @IBOutlet private weak var typeOfOrderCollectionView: UICollectionView!
@@ -33,6 +31,7 @@ class ViewController: UIViewController {
         fetchcategory()
         fetchOrderType()
     }
+    
     private func configureCategoryCV() {
         productTableView.dataSource = self
         productTableView.delegate = self
@@ -52,6 +51,7 @@ class ViewController: UIViewController {
         , bundle: nil), forCellReuseIdentifier:
         ProductTableViewCell.reuseIdentifier)
     }
+    
     private func fetchProducts() {
         do { productArray = try NetworkLayer.shared.fetchProducts() ?? []
             productTableView.reloadData()
@@ -59,6 +59,7 @@ class ViewController: UIViewController {
             print("error \(error.localizedDescription)")
         }
     }
+    
     private func fetchcategory() {
         do { categoryArray = try NetworkLayer.shared.fetchCategory() ?? []
            categoryCollectionView.reloadData()
@@ -66,6 +67,7 @@ class ViewController: UIViewController {
             print("error \(error.localizedDescription)")
         }
     }
+    
     private func fetchOrderType() {
         do { orderType = try NetworkLayer.shared.fetchOrderType() ?? []
             typeOfOrderCollectionView.reloadData()
@@ -135,8 +137,6 @@ class ViewController: UIViewController {
         .reuseIdentifierForOrderType,
         for: indexPath) as! OrderTypeCollectionViewCell
         let model = orderType[indexPath.row]
-//                cell.backgroundColor = orderType[0].backGroundColorForText
-//                cell.backgroundColor = orderType[indexPath.row].backGroundColorForText
         cell.display(item: model)
         return cell
             }
@@ -162,18 +162,8 @@ extension ViewController: ProductsCellDelegate {
         let secondVC = storyboard?
         .instantiateViewController(withIdentifier: "second_vc"
         ) as! SecondViewController
-//        secondVC.product = item
         navigationController?.pushViewController(secondVC, animated: true)
     }
 }
 
-//extension ViewController: CreateSelections {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        didSelectSelection()
-//    }
-//
-//    func didSelectSelection() {
-//        let secondVC = storyboard?.instantiateViewController(withIdentifier: "second_vc")
-//        navigationController?.pushViewController(secondVC!, animated: true)
-//    }
-//}
+
