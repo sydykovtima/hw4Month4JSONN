@@ -62,7 +62,6 @@ class ProductTableViewCell: UITableViewCell {
     }
 }
 
-
 let productJSON = """
 [{
         "productsImageView": "Burger Craze",
@@ -88,6 +87,7 @@ let productJSON = """
 }
 ]
 """
+
 struct Product: Decodable {
     let productsImageView: String
     let nameProducts: String
@@ -100,4 +100,4 @@ struct Product: Decodable {
     let distance: String
 }
 
-//смыччсмвы
+
