@@ -41,8 +41,6 @@ let categoryJSON = """
 ]
 """
 
-
-
 struct Category: Decodable {
     let imagesCategory: String
     let name: String
