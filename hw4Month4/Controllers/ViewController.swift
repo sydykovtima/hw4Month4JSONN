@@ -13,12 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet private weak var categoryCollectionView: UICollectionView!
     @IBOutlet private weak var productTableView: UITableView!
     
-    let productsinfo = Products().printAllInfo()
-    
     private var productArray: [Product] = []
-    
     private var categoryArray: [Category] = []
     private var orderType: [TypeOfOrder] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCategoryCV()
@@ -53,7 +51,7 @@ class ViewController: UIViewController {
     }
     
     private func fetchProducts() {
-        do { productArray = try NetworkLayer.shared.fetchProducts() ?? []
+        do { productArray = try NetworkLayer.shared.fetchProducts() 
             productTableView.reloadData()
         }catch {
             print("error \(error.localizedDescription)")
@@ -61,7 +59,7 @@ class ViewController: UIViewController {
     }
     
     private func fetchcategory() {
-        do { categoryArray = try NetworkLayer.shared.fetchCategory() ?? []
+        do { categoryArray = try NetworkLayer.shared.fetchCategory() 
            categoryCollectionView.reloadData()
         }catch {
             print("error \(error.localizedDescription)")
@@ -69,7 +67,7 @@ class ViewController: UIViewController {
     }
     
     private func fetchOrderType() {
-        do { orderType = try NetworkLayer.shared.fetchOrderType() ?? []
+        do { orderType = try NetworkLayer.shared.fetchOrderType() 
             typeOfOrderCollectionView.reloadData()
         } catch {
             print("error \(error.localizedDescription)")
