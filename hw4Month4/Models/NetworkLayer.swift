@@ -12,21 +12,21 @@ final class NetworkLayer {
     
     private init() { }
     
-    func fetchProducts() throws -> [Product]? {
+    func fetchProducts() throws -> [Product] {
         let decoder = JSONDecoder()
-        let product = try? decoder.decode([Product].self, from: Data(productJSON.utf8))
+        let product = try decoder.decode([Product].self, from: Data(productJSON.utf8))
         return product
     }
     
-    func fetchCategory() throws -> [Category]? {
+    func fetchCategory() throws -> [Category] {
         let decode = JSONDecoder()
-        let category = try? decode.decode([Category].self, from: Data(categoryJSON.utf8))
+        let category = try decode.decode([Category].self, from: Data(categoryJSON.utf8))
         return category
     }
     
-    func fetchOrderType() throws -> [TypeOfOrder]? {
+    func fetchOrderType() throws -> [TypeOfOrder] {
         let decod = JSONDecoder()
-        let orderType = try? decod.decode([TypeOfOrder].self, from: Data(orderTypeJSON.utf8))
+        let orderType = try decod.decode([TypeOfOrder].self, from: Data(orderTypeJSON.utf8))
         return orderType
     }
 }
